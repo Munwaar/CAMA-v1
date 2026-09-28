@@ -29,5 +29,5 @@ export default function AppShell() {
   }
 
   if (role === "mentor") return <MentorHome onSwitchWorkspace={() => { signOut(); setPhase("login"); }} />;
-  return <Home />;
+  return <Home onSwitchWorkspace={() => { signOut(); setPhase("login"); }} />;
 }
