@@ -6,6 +6,7 @@ import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { StudentProvider } from "./contexts/StudentContext";
+import { SessionProvider } from "./contexts/SessionContext";
 import { ThemeProvider } from "./contexts/ThemeContext";
 
 function Router() {
@@ -22,12 +23,14 @@ function App() {
   return (
     <ErrorBoundary>
       <ThemeProvider defaultTheme="light">
-        <StudentProvider>
-          <TooltipProvider>
-            <Toaster position="bottom-right" />
-            <Router />
-          </TooltipProvider>
-        </StudentProvider>
+        <SessionProvider>
+          <StudentProvider>
+            <TooltipProvider>
+              <Toaster position="bottom-right" />
+              <Router />
+            </TooltipProvider>
+          </StudentProvider>
+        </SessionProvider>
       </ThemeProvider>
     </ErrorBoundary>
   );
