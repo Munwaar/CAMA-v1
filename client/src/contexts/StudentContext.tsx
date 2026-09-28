@@ -4,6 +4,8 @@ import { createContext, useContext, useEffect, useMemo, useState, type ReactNode
 export type StudentProfile = {
   name: string;
   department: string;
+  learningLevel?: string;
+  preferredLanguage?: string;
   careerGoal: string;
   targetCompany: string;
 };
@@ -13,6 +15,8 @@ const STORAGE_KEY = "cama-student-profile";
 export const DEFAULT_PROFILE: StudentProfile = {
   name: "Munwaar",
   department: "Computer Science & Engineering",
+  learningLevel: "Intermediate",
+  preferredLanguage: "English",
   careerGoal: "Software Engineer",
   targetCompany: "Google",
 };
