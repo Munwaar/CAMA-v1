@@ -981,3 +981,17 @@ input:focus-visible, textarea:focus-visible, select:focus-visible,
   .onboarding-card { padding: 30px 22px 26px; border-radius: 14px; }
   .onboarding-chip-grid { grid-template-columns: 1fr; }
 }
+
+/* Final mobile guard: this must remain after the shared shell rules so the rail cannot reserve desktop width. */
+@media (max-width: 820px) {
+  .cama-app { display: block; width: 100%; max-width: 100%; overflow-x: hidden; }
+  .cama-sidebar { position: fixed !important; left: 0; top: 0; bottom: 0; width: 254px; min-width: 254px; max-width: 85vw; transform: translateX(-100%); }
+  .cama-sidebar.mobile-open { transform: translateX(0); }
+  .cama-main { display: block; width: 100%; max-width: 100%; min-width: 0; margin: 0; }
+  .cama-topbar, .cama-content { width: 100%; max-width: 100%; min-width: 0; }
+}
+@media (max-width: 580px) {
+  .cama-content { padding-right: 17px; padding-left: 17px; }
+  .section-heading h2 { max-width: 100%; overflow-wrap: anywhere; }
+  .section-heading p { max-width: 100%; }
+}
