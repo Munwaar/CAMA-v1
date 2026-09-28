@@ -1007,3 +1007,8 @@ input:focus-visible, textarea:focus-visible, select:focus-visible,
 @media (max-width: 580px) {
   .workspace-switch { min-height:38px; }
 }
+
+.login-entry { width:auto; gap:5px; padding:0 9px; color:var(--cobalt); border:1px solid rgba(47,111,237,.22); border-radius:5px; font-size:9px; font-weight:800; }
+.login-entry span { display:inline; }
+.login-entry:hover { background:rgba(47,111,237,.08); }
+@media (max-width:580px) { .login-entry { padding:0 7px; }.login-entry span { display:none; } }

@@ -15,9 +15,10 @@ export default function AppShell() {
   const { role, signIn, signOut } = useSession();
   const [phase, setPhase] = useState<Phase>("loading");
   const hasCompleteStudentProfile = Boolean(profile?.name && profile.department && profile.learningLevel && profile.preferredLanguage && profile.careerGoal && profile.targetCompany);
+  const loginRequested = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("login") === "1";
 
   if (phase === "loading") {
-    return <LoadingScreen onDone={() => setPhase(role === "mentor" || (role === "student" && hasCompleteStudentProfile) ? "dashboard" : role === "student" ? "onboarding" : "login")} />;
+    return <LoadingScreen onDone={() => setPhase(loginRequested ? "login" : role === "mentor" || (role === "student" && hasCompleteStudentProfile) ? "dashboard" : role === "student" ? "onboarding" : "login")} />;
   }
 
   if (phase === "login") {

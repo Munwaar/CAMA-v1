@@ -48,6 +48,7 @@ import {
   Timer,
   MessageCircle,
   Mic,
+  LogIn,
   RotateCcw,
   ChevronLeft,
   X,
@@ -475,7 +476,7 @@ export default function Home({ onSwitchWorkspace }: { onSwitchWorkspace: () => v
       <div className="sidebar-footer"><button className={`nav-item ${activeView === "profile" ? "active" : ""}`} onClick={() => go("profile")}><UserRound size={17} /><span>Profile</span></button><button className="workspace-switch" onClick={onSwitchWorkspace}><RotateCcw size={14} /><span>Switch workspace</span></button><div className="sidebar-status"><span className="status-orb" /><span>Prototype session</span></div></div>
     </aside>
     <main className="cama-main">
-      <header className="cama-topbar"><div className="topbar-left"><button className="mobile-menu" onClick={() => setMobileOpen(true)} aria-label="Open navigation"><Menu size={19} /></button><div className="breadcrumb"><span>CAMA</span><ChevronRight size={14} /><strong>{viewLabels[activeView]}</strong></div></div><div className="topbar-actions"><button className="search-trigger" onClick={() => toast("Search is ready for the next integration pass.")}><Search size={16} /><span>Search CAMA</span><kbd>⌘ K</kbd></button><Pill tone="critical"><span className="demo-dot" /> Demo data</Pill><button className="topbar-icon" onClick={() => toast("No new notifications in this prototype session.")} aria-label="Notifications"><Bell size={17} /></button><button className="topbar-avatar" onClick={() => go("profile")} aria-label="Open profile">{initial}</button></div></header>
+      <header className="cama-topbar"><div className="topbar-left"><button className="mobile-menu" onClick={() => setMobileOpen(true)} aria-label="Open navigation"><Menu size={19} /></button><div className="breadcrumb"><span>CAMA</span><ChevronRight size={14} /><strong>{viewLabels[activeView]}</strong></div></div><div className="topbar-actions"><button className="search-trigger" onClick={() => toast("Search is ready for the next integration pass.")}><Search size={16} /><span>Search CAMA</span><kbd>⌘ K</kbd></button><Pill tone="critical"><span className="demo-dot" /> Demo data</Pill><button className="topbar-icon login-entry" onClick={onSwitchWorkspace} aria-label="Open login and switch account"><LogIn size={16} /><span>Login</span></button><button className="topbar-icon" onClick={() => toast("No new notifications in this prototype session.")} aria-label="Notifications"><Bell size={17} /></button><button className="topbar-avatar" onClick={() => go("profile")} aria-label="Open profile">{initial}</button></div></header>
       <div className="cama-content">{renderView()}</div>
       <footer className="cama-footer"><span>CAMA / CAREER ALIGNMENT & LABOUR-MARKET INTELLIGENCE</span><span>DEMO BUILD · SIH26134</span></footer>
     </main>
